@@ -9,8 +9,11 @@ import androidx.compose.foundation.verticalScroll
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
+import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
+import androidx.compose.ui.text.style.TextAlign
+import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 
 @Composable
@@ -71,17 +74,22 @@ private fun CommonTitleSubtitleRowComponent(
     title: String,
     subtitle: String,
 ) {
-    Text(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(40.dp),
-        text = title
-    )
-    Text(
-        modifier = modifier
-            .fillMaxWidth()
-            .height(40.dp),
-        text = subtitle
-    )
+    Column(
+        modifier = modifier.fillMaxWidth(),
+        horizontalAlignment = Alignment.CenterHorizontally,
+    ) {
+        Text(
+            modifier = Modifier,
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.titleLarge,
+            text = title
+        )
+        Text(
+            modifier = Modifier,
+            textAlign = TextAlign.Center,
+            style = MaterialTheme.typography.titleMedium,
+            text = subtitle,
+        )
+    }
 }
 
