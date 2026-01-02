@@ -95,6 +95,7 @@ android {
 
 dependencies {
     debugImplementation(compose.uiTooling)
+    project(":shared")
 }
 
 compose.desktop {
