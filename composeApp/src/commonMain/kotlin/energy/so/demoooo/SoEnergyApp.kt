@@ -47,7 +47,7 @@ fun Body() {
             modifier = Modifier.background(Color.Green)
                 .fillMaxWidth()
                 .height(400.dp),
-            text = "Video section",
+            text = "Video section.",
         )
         CommonTitleSubtitleRowComponent(
             modifier = Modifier.background(Color.Red),
