@@ -1,11 +1,19 @@
 package energy.so.demoooo
 
 import androidx.compose.foundation.background
+import androidx.compose.foundation.layout.Arrangement
 import androidx.compose.foundation.layout.Column
+import androidx.compose.foundation.layout.Row
+import androidx.compose.foundation.layout.fillMaxHeight
 import androidx.compose.foundation.layout.fillMaxWidth
 import androidx.compose.foundation.layout.height
+import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.rememberScrollState
 import androidx.compose.foundation.verticalScroll
+import androidx.compose.material3.Card
+import androidx.compose.material3.CardDefaults
+import androidx.compose.material3.ColorScheme
+import androidx.compose.material3.ElevatedCard
 import androidx.compose.material3.MaterialTheme
 import androidx.compose.material3.Text
 import androidx.compose.runtime.Composable
@@ -13,13 +21,16 @@ import androidx.compose.ui.Alignment
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.graphics.Color
 import androidx.compose.ui.text.style.TextAlign
-import androidx.compose.ui.unit.TextUnit
 import androidx.compose.ui.unit.dp
 
 @Composable
 fun SoEnergyApp() {
 
-    MaterialTheme {
+    MaterialTheme(
+        colorScheme = MaterialTheme.colorScheme.copy(
+            surfaceVariant = Color(red= 203, green = 251, blue = 0 )
+        )
+    ) {
         Column(
             modifier = Modifier.verticalScroll(rememberScrollState())
         ) {
@@ -43,12 +54,7 @@ fun Menu() {
 fun Body() {
     Column {
         // Top Video
-        Text(
-            modifier = Modifier.background(Color.Green)
-                .fillMaxWidth()
-                .height(400.dp),
-            text = "Video section.",
-        )
+        VideoSection()
         CommonTitleSubtitleRowComponent(
             modifier = Modifier.background(Color.Red),
             title = "What we do",
@@ -66,6 +72,32 @@ fun Body() {
             subtitle = "common row component 3",
         )
     }
+}
+
+@Composable
+private fun VideoSection() {
+    Card(
+        colors = CardDefaults.cardColors(
+            containerColor = MaterialTheme.colorScheme.surfaceVariant,
+        ),
+        modifier = Modifier.padding(16.dp),
+    ) {
+        Row(
+            horizontalArrangement = Arrangement.SpaceEvenly,
+            modifier = Modifier.height(400.dp)
+                .fillMaxWidth()
+        ) {
+            Text(
+                modifier = Modifier.fillMaxHeight().weight(1f),
+                text = "Video player.",
+            )
+            Text(
+                modifier = Modifier.fillMaxHeight().weight(1f),
+                text = "Video Description.",
+            )
+        }
+    }
+
 }
 
 @Composable
